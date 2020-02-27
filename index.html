@@ -4,6 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>newsApi</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div>
+        <button id="getNews" class="topBtn">Download News</button>
+      </div>
+    </header>
+    <section id="result" class="displayNews"></section>
+
+    <script>
+      document.getElementById("getNews").addEventListener("click", getNEWS);
+
+      function getNEWS() {
+        const urlNewsApi =
+          "http://newsapi.org/v2/top-headlines?country=us&apiKey=2e004fcb15a74c669dcf29be5321d601";
+        fetch(urlNewsApi)
+          .then(res => {
+            return res.json();
+          })
+          .then(data => {
+            let result;
+            data.articles.forEach(singleNews => {
+              const { author, title, description } = singleNews;
+              result += `
+              <div class="card">
+                <h1>${author}</h1>
+                <p>${description}</p>
+             </div> `;
+
+              document.getElementById("result").innerHTML = result;
+            });
+          })
+          .catch(err => {
+            console.log("Error:", err);
+          });
+      }
+    </script>
+  </body>
 </html>
