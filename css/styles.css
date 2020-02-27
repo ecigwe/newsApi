@@ -13,8 +13,20 @@ body {
   width: 20em;
   height: 20rem;
   margin: 0.3rem;
-  border: 5px solid red;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 h1 {
   color: aqua;
+}
+.topBtn {
+  margin: 1rem;
+  olor: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ed3330;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
 }
